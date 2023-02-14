@@ -1,0 +1,24 @@
+mediator:
+  paths:
+    - "com.cillu.mediator.integrationevents.config.single"
+    - "com.cillu.mediator.integrationevents.config.multiple"
+    - "com.cillu.mediator.integrationevents.services"
+  messageBroker:
+    name: awsSns
+    awsSns:
+      region: missing #use the localstack one
+      snsEndpointUrl: missing   #use the localstack one
+      sqsEndpointUrl: missing #use the localhost one
+      topicName: platform_topic
+      queueName: microservice1
+      consumer:
+        maxConsumers: 2
+        maxMessages: 10
+        waitTimeSeconds: 20
+        retryAfterSeconds: 1
+        processTimeoutSeconds: 60
+
+logging:
+  level:
+    root: INFO
+
